@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: nestjs-app
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=yourpassword
+      - DATABASE_NAME=mydatabase
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword # Contraseña para el usuario root
+      MYSQL_DATABASE: mydatabase # Base de datos que se creará
+      # MYSQL_USER y MYSQL_PASSWORD son opcionales si quieres un usuario diferente
+      # MYSQL_USER: exampleuser
+      # MYSQL_PASSWORD: examplepassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
