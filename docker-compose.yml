@@ -21,9 +21,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: yourpassword # Contraseña para el usuario root
-      MYSQL_DATABASE: mydatabase # Base de datos que se creará
-      # MYSQL_USER y MYSQL_PASSWORD son opcionales si quieres un usuario diferente
+      MYSQL_ROOT_PASSWORD: yourpassword 
+      MYSQL_DATABASE: mydatabase
+      # MYSQL_USER y MYSQL_PASSWORD son opcionales
       # MYSQL_USER: exampleuser
       # MYSQL_PASSWORD: examplepassword
     volumes:
